@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockApp · Dogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🐾 MockApp — for dogs & friends</h1>
+    </header>
+
+    <main>
+        <!-- Section 1: Application / Service form with validation -->
+        <section class="card">
+            <h2>Start an application</h2>
+            <form id="serviceForm">
+                <div class="form-group">
+                    <label for="applicantName">Your name *</label>
+                    <input type="text" id="applicantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantEmail">Email *</label>
+                    <input type="email" id="applicantEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceType">Service</label>
+                    <select id="serviceType">
+                        <option value="adoption">Adoption</option>
+                        <option value="grooming">Grooming</option>
+                        <option value="walking">Dog walking</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dogName">Dog's name (optional)</label>
+                    <input type="text" id="dogName">
+                </div>
+                <button type="submit" class="btn">Apply now</button>
+                <div id="formError" class="error-message"></div>
+            </form>
+        </section>
+
+        <!-- Section 2: Table with search and loading animation -->
+        <section class="card">
+            <h2>Available dogs</h2>
+            <div class="table-controls">
+                <button id="searchBtn" class="btn">🔍 Search</button>
+            </div>
+            <table id="dogTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Breed</th>
+                        <th>Age (years)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- empty initially – loading or data will appear here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 3: Profile form and profile cards -->
+        <section class="card">
+            <h2>Build a profile</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="ownerName">Owner name *</label>
+                    <input type="text" id="ownerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dogNameProfile">Dog's name *</label>
+                    <input type="text" id="dogNameProfile" required>
+                </div>
+                <div class="form-group">
+                    <label for="dogBreed">Favorite breed</label>
+                    <input type="text" id="dogBreed">
+                </div>
+                <button type="submit" class="btn">Create profile card</button>
+            </form>
+            <div id="profileContainer" class="profile-container">
+                <!-- profile cards will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
