@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
-  "scripts": {},
+  "scripts": {
+    "test-all": "npx playwright test",
+    "test-apply": "npx playwright test tests -g '@apply'",
+    "test-search": "npx playwright test tests -g '@search'",
+    "test-profile": "npx playwright test tests -g '@profile'"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
