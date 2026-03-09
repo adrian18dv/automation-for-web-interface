@@ -4,7 +4,7 @@ on:
     branches: [ main, master ]
   # pull_request:
   #   branches: [ main, master ]
-  workflow_dispatch: [ main, master ]
+  workflow_dispatch:
     inputs:
       test-suite:
         description: 'Select Test Suite'
