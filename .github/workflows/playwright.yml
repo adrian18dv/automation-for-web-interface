@@ -32,7 +32,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       # run: npx playwright test
-      run: npm run {{ inputs.test-suite }}
+      run: npm run ${{ inputs.test-suite }}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
