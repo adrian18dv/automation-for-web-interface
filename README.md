@@ -14,6 +14,7 @@ Whether you're pushing a small bug fix or a major feature, this suite helps you 
 - **Detailed Reporting** – Generate HTML, JSON, JUnit/XML reports and traces to simplify debugging.
 - **Early Regression Detection** – Catch unexpected side‑effects of even the smallest code changes.
 
+Info about Dorny reporter config here*
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v16 or later)
