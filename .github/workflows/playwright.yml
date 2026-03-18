@@ -17,22 +17,37 @@ on:
           - test-profile
         default: test-all
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    
     - uses: actions/setup-node@v4
       with:
-        node-version: lts/*
+        node-version: 24
+    
     - name: Install dependencies
       run: npm ci
+    
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    
     - name: Run Playwright tests
-      # run: npx playwright test
       run: npm run ${{ inputs.test-suite }}
+    
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: ${{ !cancelled() }}
+      with:
+        name: Playwright Test Results
+        path: junit.xml
+        reporter: java-junit
+    
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
