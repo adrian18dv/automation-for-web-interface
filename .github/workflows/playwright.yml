@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ main, master ]
+  # push:
+  #   branches: [ main, master ]
   # pull_request:
   #   branches: [ main, master ]
   workflow_dispatch:
@@ -19,6 +19,12 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+# Add permissions here
+permissions:
+  contents: read
+  checks: write  # This allows creating check runs
+  actions: read
 
 jobs:
   test:
@@ -38,9 +44,9 @@ jobs:
       run: npx playwright install --with-deps
     
     - name: Run Playwright tests
-      run: npm run ${{ inputs.test-suite }}
+      run: npm run ${{ inputs.test-suite != '' && inputs.test-suite || 'test-all' }}
     
-    - name: Test Report
+    - name: Check Run Report
       uses: dorny/test-reporter@v1
       if: ${{ !cancelled() }}
       with:
