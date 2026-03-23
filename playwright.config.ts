@@ -36,8 +36,8 @@ export default defineConfig({
     trace: 'on-first-retry',
 
     /* Show browser UI */
-    // headless: false,
-    // viewport: { width: 1280, height: 720 },
+    headless: false,
+    viewport: { width: 1280, height: 720 },
   },
 
   /* Configure projects for major browsers */
