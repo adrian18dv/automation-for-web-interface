@@ -31,16 +31,30 @@ test.describe("SAGA - Apply for service", { tag: "@apply" }, async () => {
     test('Apply with no name', async ({ page }) => {
         await page.goto(pageAddress);
 
+        await page.waitForTimeout(1000); // Arbitrary delay
+
         // Fill only email and other fields, leave name empty
         await page.locator('#applicantEmail').fill(validEmail);
+
+        await page.waitForTimeout(1000); // Arbitrary delay
+
         await page.locator('#serviceType').selectOption('Adoption');
+
+        await page.waitForTimeout(1000); // Arbitrary delay
+
         await page.locator('#dogName').fill(dogName);
+
+        await page.waitForTimeout(1000); // Arbitrary delay
 
         // Submit the form
         await page.getByRole('button', { name: 'Apply now' }).click();
 
+        await page.waitForTimeout(1000); // Arbitrary delay
+
         // Verify error message
         await expect(page.locator('#formError')).toHaveText('❌ Name is required.');
+
+        await page.waitForTimeout(1000); // Arbitrary delay
     });
 
     test('Apply with no email', async ({ page }) => {
